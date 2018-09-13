@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+       
+        #goodx{margin: 20px auto;height: 286px;}
+        ul li{float: left;width: 150px;margin-bottom:10px ;
+                padding: 10px 20px;border-left:1px solid #ccc;border-right:1px solid #ccc; }
+        ul li img{width: 200px;width: 100px;}
+        ul li h3,div{font-size: 12px;padding: 3px;}
+        ul li .price{color: #f00;}
+        #goods-btn{margin-left: 20px;}
+        .car{width: 20px;height: 70px;z-index: 99;position: absolute;top: 50%;right:0px;}
+       #shop_car{background:#ccc;width: 170px;height: 100%;position: absolute;top: 0;right: -190px;}
+       #shop_car button{margin-left:60px ;}
+       #shopingcar{width: 170px;}
+       .car_box{position: fixed;right: 0;bottom: 0; height: 100%;width: 320px;}
+        .car_items{height: 100%;width: 15px;background:blue;position: absolute;top: 0;right: -30px;}
+        #shopingcar .goods_delete{text-align: center;background: red;width: 20px;height: 20px;float: right;line-height: 20px;cursor: pointer;}
+        
+
+</style>
+<script src="../js/goods_xiangqingye.js"></script>
+<script>
+
+document.addEventListener('DOMContentLoaded',()=>{
+
+    let car_box = document.querySelector('.car-box'); 
+
+    let car_items = document.querySelector('.car_items');
+
+    let car = document.querySelector('.car');
+
+    let shopingcar = document.querySelector('#shopingcar');
+
+    let shop_car = document.querySelector('#shop_car');
+    
+    let car_number = document.querySelector('.car-number');
+
+
+    car.onmouseover = function(){
+        car_items.style.right=0+'px';
+
+    }
+
+
+    var a = true;
+    car.onclick = function(){
+       
+        
+        if(a){
+            car.style.right = 175+'px';
+            car_items.style.right=175+'px';
+            shop_car.style.right = 0+'px';
+            a = false;
+
+
+                car.onmouseout = function(){
+                car_items.style.right=175+'px';
+
+                }
+                car.onmouseover = function(){
+                car_items.style.right=175+'px';
+
+                }
+            
+        }else{
+            car.style.right = 0+'px';
+            car_items.style.right=-30+'px';
+            shop_car.style.right = -190+'px';
+            a = true;
+
+
+                car.onmouseout = function(){
+                car_items.style.right=-30+'px';
+
+                }
+                car.onmouseover = function(){
+                car_items.style.right=0+'px';
+
+                }
+
+
+        }
+        
+        
+     }
+        console.log(car.style.right);
+ 
+    car.onmouseout = function(){
+    car_items.style.right=-30+'px';
+
+        
+     }
+     
+    
+});
+
+
+
+</script>
+<body>
+    <h1>详情页</h1>
+    <div id="goodx"></div>
+    <br>
+    <button id="goods-btn">添加到购物车</button>
+
+    <div class="car_box">
+      <div class="car_items"></div>
+    
+        <button class="car">购物车 <span class="car-number">qty</span></button>
+        
+       <div id="shop_car"><div id="shopingcar"></div><button class="shop_jiesuan">结算页</button></div> 
+   </div>
+</body>
+</html>
