@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue实例化对象</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<body>
+    <!-- //vue是根容器 -->
+    <div id="vue-app">
+        <button v-on:click="add(1)">涨一岁</button>
+        <button v-on:click.once="substract(1)">减一岁</button>
+        <button v-on:click="add(10)">涨十岁</button>
+        <button v-on:click="substract(10)">减十岁</button>
+       <p>我的年龄是{{age}}</p> 
+       <div class="canvas" v-on:mousemove="mouse">
+            {{x}},{{y}}
+            <span v-on:mousemove.stop="">停止</span>
+       </div>
+    </div>
+
+    <!-- 键盘shijian/双向数据绑定 -->
+    <div id="vue-bpp">
+        <h1>键盘shijian/双向数据绑定</h1>
+        <label for="#">姓名</label>
+        <input ref="name" type="text" v-model="name">
+        <span>{{name}} </span>
+        <label for="#">年龄</label>
+        <input ref="age" type="text" v-on:keyup.alt.enter="logAge">
+        <span>{{age}} </span>
+    </div>
+
+    <!-- computer计算属性 -->
+    <div id="vue-cpp">
+        <h1>computer计算属性</h1>
+        <button v-on:click="a++">Add to A </button>
+        <button v-on:click="b++">Add to B </button>
+        <p>A - {{a}} </p>
+        <p>B - {{b}} </p>
+        <P>age + a = {{addToA}} </P>
+        <P>age + b = {{addToB}} </P>
+    </div>
+
+    <!-- 动态绑定css属性 -->
+    <div id="vue-dpp">
+        <h2>实例一</h2>
+        <div v-on:click="changeColor=!changeColor" v-bind:class="{changeColor:changeColor}">
+            <i>herny</i>
+        </div>
+        <h2>实例二</h2>
+        <button v-on:click="changeColor=!changeColor">1</button>
+        <button v-on:click="changeLength=!changeLength">2</button>
+        <div v-bind:class="compclass">
+            <i>haery</i>
+        </div>
+    </div>
+
+    <!-- v-if指令 -->
+    <div id="vue-epp">
+        <button v-on:click="error=!error">toggle error</button>
+        <button v-on:click="success=!success">toggle success</button>
+        <!-- <p v-if="error">网络链接错误:404</p>
+        <p v-else-if="success">网络链接成功:200</p> -->
+        <p v-show="error">网络链接错误:404</p>
+        <p v-show="success">网络链接成功:200</p>
+    </div>
+</body>
+<script src="./js/app.js"></script>
+</html>

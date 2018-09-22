@@ -1,0 +1,26 @@
+.canvas{
+    width: 300px;
+    height: 300px;
+    border: 1px solid #333;
+    line-height: 300px;
+    text-align: center;
+
+}
+
+
+i{
+    background: red;
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+    margin: 10px 0;
+}
+
+.changeColor i{
+    background: green;
+}
+
+.changeLength i:after{
+    content:"length";
+    margin-left: 10px;
+}
