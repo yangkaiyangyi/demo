@@ -98,13 +98,33 @@ new Vue({
 })
 
 
-
+//v-if指令
 new Vue({
     el:"#vue-epp",
     data:{
     
     error:false,
     success:false,
+    },
+    methods:{ 
+    },
+    computed:{
+    }
+
+    
+})
+
+//v-for指令
+new Vue({
+    el:"#vue-fpp",
+    data:{
+    
+    characters:["mary","luobo","jialun"],
+    users:[
+        {name:"niu",age:19},
+        {name:"yang",age:16},
+        {name:"ma",age:18},
+    ]
     },
     methods:{ 
     },

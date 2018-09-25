@@ -67,6 +67,31 @@
         <p v-show="error">网络链接错误:404</p>
         <p v-show="success">网络链接成功:200</p>
     </div>
+
+    <!-- v-for指令 -->
+    <div id="vue-fpp">
+        <!-- 数组下标 -->
+        {{characters[0]}}
+        {{characters[1]}}
+        {{characters[2]}}
+        <!-- 数组遍历 -->
+        <ul>
+            <li v-for="x in characters">
+                {{x}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(y,index ) in users">
+               {{index+1}}.  {{y.name}}-{{y.age}}
+            </li>
+        </ul>
+        <div v-for="z in users">
+            <div v-for="(value,key) in z">
+                <p>{{key}}-{{value}}</p>
+            </div>
+        </div>
+    </div>
+
 </body>
 <script src="./js/app.js"></script>
 </html>
